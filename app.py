@@ -90,7 +90,7 @@ def load_startup():
     st.write("This section provides an analysis of the startups.")
     startups_name=st.sidebar.selectbox("Select company name",sorted(df['Startup'].unique().tolist()))
     st.write("Date of funding for the startup:")
-    date_startup=df[df['Startup'].str.contains('BYJU')]['Date'].dropna()
+    date_startup=df[df['Startup'].str.contains(startups_name)]['Date'].dropna()
     if not date_startup.empty:
         for p,i in enumerate(date_startup):
             st.markdown(f"**📅 Startup Date** {p+1} :{i.strftime('%B %d, %Y')}")
